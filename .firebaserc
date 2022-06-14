@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "japinha-49ca1": {
+      "hosting": {
+        "japinha": [
+          "japinha-49ca1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "japinha-49ca1"
+  }
+}
