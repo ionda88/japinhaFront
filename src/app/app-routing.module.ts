@@ -5,6 +5,8 @@ import {SobreComponent} from "./sobre/sobre.component";
 import {InicioComponent} from "./inicio/inicio.component";
 import {CarrinhoComponent} from "./carrinho/carrinho.component";
 import {LocalizacaoComponent} from "./localizacao/localizacao.component";
+import {CategoriasItensComponent} from "./categorias-itens/categorias-itens.component";
+import {CategoriasComponent} from "./categorias/categorias.component";
 
 const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'sobre', component: SobreComponent },
   { path: 'carrinho', component: CarrinhoComponent },
   { path: 'localizacao', component: LocalizacaoComponent },
+  { path: 'categorias', component: CategoriasComponent },
+  { path: 'categoriasItens', component: CategoriasItensComponent },
   { path: '',   redirectTo: '/inicio', pathMatch: 'full' },
 ];
 

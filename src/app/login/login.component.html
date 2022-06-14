@@ -5,11 +5,11 @@
         <div class="card" style="border-radius: 1rem;">
           <div class="row g-0">
             <div class="col-md-6 col-lg-5 d-none d-md-block" style="
-    background-image: url('assets/loginbg2.jpg');;
-    background-size: cover;
+                background-image: url('assets/loginbg2.jpg');;
+                background-size: cover;
 
-    border-radius: 1rem;
-  ">
+                border-radius: 1rem;
+              ">
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
@@ -26,16 +26,16 @@
                     <label class="form-label" for="emaillogin">Email</label>
                   </div>
 
-                  <div *ngIf="emaillogin.invalid && (emaillogin.dirty || emaillogin.touched)"
-                       class="alert">
+<!--                  <div *ngIf="emaillogin.invalid && (emaillogin.dirty || emaillogin.touched)"-->
+<!--                       class="alert">-->
 
-                    <small *ngIf="emaillogin.errors?.['required']">
-                      Email é obrigatório.
-                    </small>
-                    <small *ngIf="emaillogin.errors?.['minlength']">
-                      Email precisa ter no mínimo 4 dígitos.
-                    </small>
-                  </div>
+<!--                    <small *ngIf="emaillogin.errors?.['required']">-->
+<!--                      Email é obrigatório.-->
+<!--                    </small>-->
+<!--                    <small *ngIf="emaillogin.errors?.['minlength']">-->
+<!--                      Email precisa ter no mínimo 4 dígitos.-->
+<!--                    </small>-->
+<!--                  </div>-->
 
 
                   <div class="form-outline mb-4">
@@ -43,20 +43,20 @@
                     <label class="form-label" for="senhalogin">Senha</label>
                   </div>
 
-                  <div *ngIf="senha.invalid && (senha.dirty || senha.touched)"
-                       class="alert">
+<!--                  <div *ngIf="senha.invalid && (senha.dirty || senha.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="senha.errors?.['required']">
-                      Senha é obrigatório.
-                    </div>
-                    <div *ngIf="senha.errors?.['minlength']">
-                      Senha precisa ter no mínimo 4 dígitos.
-                    </div>
-                  </div>
+<!--                    <div *ngIf="senha.errors?.['required']">-->
+<!--                      Senha é obrigatório.-->
+<!--                    </div>-->
+<!--                    <div *ngIf="senha.errors?.['minlength']">-->
+<!--                      Senha precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
+<!--                  </div>-->
 
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                    <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="login()">Login</button>
                   </div>
 
                   <a class="small text-muted" href="#!">Esqueceu a senha?</a>
@@ -74,67 +74,67 @@
                     <label class="form-label" for="nomeCadastro">Nome</label>
                   </div>
 
-                  <div *ngIf="nome.invalid && (nome.dirty || nome.touched)"
-                       class="alert">
+<!--                  <div *ngIf="nome.invalid && (nome.dirty || nome.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="nome.errors?.['required']">
-                      Nome é obrigatório.
-                    </div>
-                    <div *ngIf="nome.errors?.['minlength']">
-                      Nome precisa ter no mínimo 4 dígitos.
-                    </div>
-                  </div>
+<!--                    <div *ngIf="nome.errors?.['required']">-->
+<!--                      Nome é obrigatório.-->
+<!--                    </div>-->
+<!--                    <div *ngIf="nome.errors?.['minlength']">-->
+<!--                      Nome precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
+<!--                  </div>-->
 
                   <div class="form-outline mb-2">
                     <input type="email" id="emailCadastro" name="emailCadastro" #emailcadastro="ngModel" [(ngModel)]="usuario.email" required minlength="4" class="form-control form-control" />
                     <label class="form-label" for="emailCadastro">Email</label>
                   </div>
 
-                  <div *ngIf="emailcadastro.invalid && (emailcadastro.dirty || emailcadastro.touched)"
-                       class="alert">
+<!--                  <div *ngIf="emailcadastro.invalid && (emailcadastro.dirty || emailcadastro.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="emailcadastro.errors?.['required']">
-                      Email é obrigatório.
-                    </div>
-                    <div *ngIf="emailcadastro.errors?.['minlength']">
-                      Email precisa ter no mínimo 4 dígitos.
-                    </div>
+<!--                    <div *ngIf="emailcadastro.errors?.['required']">-->
+<!--                      Email é obrigatório.-->
+<!--                    </div>-->
+<!--                    <div *ngIf="emailcadastro.errors?.['minlength']">-->
+<!--                      Email precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
 
-                  </div>
+<!--                  </div>-->
 
                   <div class="form-outline mb-2">
                     <input type="password" id="senha1cadastro" name="senha1cadastro" [(ngModel)]="usuario.senha" #senha1="ngModel" minlength="4" class="form-control form-control" />
                     <label class="form-label" for="senha1cadastro">Senha</label>
                   </div>
 
-                  <div *ngIf="senha1.invalid && (senha1.dirty || senha1.touched)"
-                       class="alert">
+<!--                  <div *ngIf="senha1.invalid && (senha1.dirty || senha1.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="senha1.errors?.['required']">
-                      Senha é obrigatório.
-                    </div>
-                    <div *ngIf="senha1.errors?.['minlength']">
-                      Senha precisa ter no mínimo 4 dígitos.
-                    </div>
+<!--                    <div *ngIf="senha1.errors?.['required']">-->
+<!--                      Senha é obrigatório.-->
+<!--                    </div>-->
+<!--                    <div *ngIf="senha1.errors?.['minlength']">-->
+<!--                      Senha precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
 
-                  </div>
+<!--                  </div>-->
 
                   <div class="form-outline mb-2">
                     <input type="password" id="senha2cadastro" name="senha2cadastro" [(ngModel)]="usuario.confirmaSenha" #senha2="ngModel" minlength="4" class="form-control form-control" />
                     <label class="form-label" for="senha2cadastro">Confirmar Senha</label>
                   </div>
 
-                  <div *ngIf="senha2.invalid && (senha2.dirty || senha2.touched)"
-                       class="alert">
+<!--                  <div *ngIf="senha2.invalid && (senha2.dirty || senha2.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="senha2.errors?.['required']">
-                      Senha é obrigatório.
-                    </div>
-                    <div *ngIf="senha2.errors?.['minlength']">
-                      Senha precisa ter no mínimo 4 dígitos.
-                    </div>
+<!--                    <div *ngIf="senha2.errors?.['required']">-->
+<!--                      Senha é obrigatório.-->
+<!--                    </div>-->
+<!--                    <div *ngIf="senha2.errors?.['minlength']">-->
+<!--                      Senha precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
 
-                  </div>
+<!--                  </div>-->
 
                   <div class="pt-1 mb-2">
                     <button class="btn btn-dark btn-lg btn-block" (click)="modo = 'cadastro2'" type="submit">Continuar</button>
@@ -151,48 +151,50 @@
                     <label class="form-label" for="nomeCadastro">CPF</label>
                   </div>
 
-                  <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)"
-                       class="alert">
+<!--                  <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="cpf.errors?.['required']">
-                      Cpf é obrigatório
-                    </div>
-                    <div *ngIf="cpf.errors?.['minlength']">
-                      Nome precisa ter no mínimo 4 dígitos.
-                    </div>
-                  </div>
+<!--                    <div *ngIf="cpf.errors?.['required']">-->
+<!--                      Cpf é obrigatório-->
+<!--                    </div>-->
+<!--                    <div *ngIf="cpf.errors?.['minlength']">-->
+<!--                      Nome precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
+<!--                  </div>-->
 
                   <div class="form-outline mb-2">
                     <input type="email" id="nuTelefone" name="nuTelefone" #telefoneDadastro="ngModel" [(ngModel)]="usuario.nuTelefone" required minlength="4" class="form-control form-control" />
                     <label class="form-label" for="emailCadastro">Telefone ou Celular</label>
                   </div>
 
-                  <div *ngIf="telefoneDadastro.invalid && (telefoneDadastro.dirty || telefoneDadastro.touched)"
-                       class="alert">
+<!--                  <div *ngIf="telefoneDadastro.invalid && (telefoneDadastro.dirty || telefoneDadastro.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="telefoneDadastro.errors?.['required']">
-                      Email é obrigatório.
-                    </div>
-                    <div *ngIf="telefoneDadastro.errors?.['minlength']">
-                      Email precisa ter no mínimo 4 dígitos.
-                    </div>
+<!--                    <div *ngIf="telefoneDadastro.errors?.['required']">-->
+<!--                      Email é obrigatório.-->
+<!--                    </div>-->
+<!--                    <div *ngIf="telefoneDadastro.errors?.['minlength']">-->
+<!--                      Email precisa ter no mínimo 4 dígitos.-->
+<!--                    </div>-->
 
-                  </div>
+<!--                  </div>-->
 
                   <div class="form-outline mb-2">
                     <input type="date" id="nascimentoCadastro" name="nascimentoCadastro" [(ngModel)]="usuario.dtNascimento" #nascimentoCadastro="ngModel" class="form-control form-control" />
                     <label class="form-label" for="senha1cadastro">Data de Nascimento</label>
                   </div>
 
-                  <div *ngIf="nascimentoCadastro.invalid && (nascimentoCadastro.dirty || nascimentoCadastro.touched)"
-                       class="alert">
+<!--                  <div *ngIf="nascimentoCadastro.invalid && (nascimentoCadastro.dirty || nascimentoCadastro.touched)"-->
+<!--                       class="alert">-->
 
-                    <div *ngIf="nascimentoCadastro.errors?.['required']">
-                      Senha é obrigatório.
-                    </div>
+<!--                    <div *ngIf="nascimentoCadastro.errors?.['required']">-->
+<!--                      Senha é obrigatório.-->
+<!--                    </div>-->
 
+<!--                  </div>-->
+                  <div class="pt-1 mb-2">
+                    <button class="btn btn-light btn-lg btn-block" type="submit" (click)="modo = 'cadastro'">Voltar</button>
                   </div>
-
                   <div class="pt-1 mb-2">
                     <button class="btn btn-dark btn-lg btn-block" type="submit" (click)="cadastrar()">Cadastrar</button>
                   </div>

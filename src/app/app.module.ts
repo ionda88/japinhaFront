@@ -9,6 +9,13 @@ import { SobreComponent } from './sobre/sobre.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { LocalizacaoComponent } from './localizacao/localizacao.component';
+import {AuthService} from "./services/auth.service";
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { CardapioComponent } from './cardapio/cardapio.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { CategoriasItensComponent } from './categorias-itens/categorias-itens.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +24,21 @@ import { LocalizacaoComponent } from './localizacao/localizacao.component';
     SobreComponent,
     InicioComponent,
     CarrinhoComponent,
-    LocalizacaoComponent
+    LocalizacaoComponent,
+    CardapioComponent,
+    CategoriasComponent,
+    CategoriasItensComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

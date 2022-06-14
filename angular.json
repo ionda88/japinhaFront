@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "japinha:build:production",
+            "firebaseProject": "japinha-49ca1",
+            "firebaseHostingSite": "japinha-49ca1"
+          }
         }
       }
     }
