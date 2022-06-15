@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'categorias', component: CategoriasComponent },
   { path: 'pedidos', component: PedidosComponent },
   { path: '',   redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }
 ];
 
 

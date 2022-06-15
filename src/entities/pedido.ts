@@ -2,6 +2,6 @@ export class Pedido {
 
   cdPedido = "";
   deEmailUsuario = "";
-
-  vlTotalPedido = ""
+  dtPedido = "";
+  vlTotalPedido = "";
 }

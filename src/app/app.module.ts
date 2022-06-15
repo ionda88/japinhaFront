@@ -17,6 +17,7 @@ import { CardapioComponent } from './cardapio/cardapio.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import {InputNumberComponent} from "./global/inputnumber/inputnumber.component";
+import { RealizarPedidoComponent } from './realizar-pedido/realizar-pedido.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {InputNumberComponent} from "./global/inputnumber/inputnumber.component";
     CardapioComponent,
     CategoriasComponent,
     PedidosComponent,
-    InputNumberComponent
+    InputNumberComponent,
+    RealizarPedidoComponent
   ],
   imports: [
     BrowserModule,

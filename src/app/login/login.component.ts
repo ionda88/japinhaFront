@@ -13,6 +13,7 @@ import {
   setDoc
 } from '@angular/fire/firestore';
 import {set} from "@angular/fire/database";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ import {set} from "@angular/fire/database";
 })
 export class LoginComponent implements OnInit {
   usuariosCollection = collection(this.firestore, 'usuarios');
-  constructor(public authService: AuthService,public firestore: Firestore) {
+  constructor(public authService: AuthService,public firestore: Firestore, private router: Router, private route: ActivatedRoute) {
 
   }
 
@@ -37,6 +38,10 @@ export class LoginComponent implements OnInit {
   usuario: Usuario = new Usuario();
 
   ngOnInit(): void {
+    if(this.authService.usuario.email != ""){
+      alert("Já está logado!");
+      this.router.navigate(['/pedidos']);
+    }
   }
 
   async cadastrar() {
@@ -77,7 +82,12 @@ export class LoginComponent implements OnInit {
     } else {
       let usuarioFire = querySnapshop.docs[0].data();
       if(usuarioFire['senha'] == this.usuario.senha) {
-        alert("Logado com sucesso!");
+        this.usuario.nome = usuarioFire['nome'];
+        this.usuario.cpf = usuarioFire['cpf'];
+        this.usuario.dtNascimento = usuarioFire['dtNascimento'];
+        this.usuario.nuTelefone = usuarioFire['nuTelefone'];
+        this.authService.usuario = this.usuario;
+        this.router.navigate(['/pedidos']);
       } else {
         alert("Senha incorreta!");
       }
