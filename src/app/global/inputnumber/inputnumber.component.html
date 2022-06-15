@@ -1,0 +1,8 @@
+<div class="input-sm" title="{{helpblock}}">
+    <small class="form-text" style="color: black;">{{label}}</small>
+    <input #campoInput type="text" class="form-control form-control-sm" [id]="idCampo" [disabled]="disabled"
+        [(ngModel)]="campoFormatado" (keyup)="change()" (blur)="blur()" placeholder="{{placeholder}}"
+        (focus)="focus()" style="text-align:right;"
+        [autocomplete]="autocomplete"
+        >
+</div>

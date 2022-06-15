@@ -65,20 +65,22 @@
             <!--            <th></th>-->
             <th>Código Item</th>
             <th>Descrição</th>
+            <th>Valor</th>
             </thead>
             <tbody>
-            <tr *ngFor="let categoriaItem of listaCategoriaItens">
+            <tr *ngFor="let categoriaItem of listaCategoriaItens" (dblclick)="editarItem(categoriaItem)">
               <!--              <td><button (click)="editCategoria(categoria)" class="btn btn-sm btn-primary">-->
               <!--                <i class="oi oi-pencil"></i></button></td>-->
               <td>{{categoriaItem.cdItem}}</td>
               <td>{{categoriaItem.deItem}}</td>
+              <td>{{categoriaItem.vlPreco | currency : 'R$'}}</td>
             </tr>
             </tbody>
           </table>
         </div>
 
       </div>
-      <form *ngIf="incluindoItem" class="form-inline border mt-3">
+      <form *ngIf="incluindoItem || editandoItem" class="form-inline border mt-3">
         <div class="m-3">
           <span style="font-family: 'Playfair Display', serif;font-weight: bold">Novo Item</span>
           <div class="form-group col-md-6">
@@ -96,19 +98,31 @@
             <input type="text" name="deItem" class="form-control form-control-sm col-md-6"
                    [(ngModel)]="categoriaItemIncluir.deItem">
           </div>
+          <div class="col-md-12">
+          <inputnumber class="col-md-6" label="Valor" [campo]="categoriaItemIncluir.vlPreco"
+                       (onChange)="categoriaItemIncluir.vlPreco = $event"></inputnumber>
+          </div>
+<!--          <div class="form-group col-md-6">-->
+<!--            <small style="  display: flex;-->
+<!--  place-items: flex-end;-->
+<!--  place-content: space-between;">Valor</small>-->
+<!--            <input type="text" name="valor" class="form-control form-control-sm col-md-6"-->
+<!--                   [(ngModel)]="categoriaItemIncluir.vlPreco | currency:'BRL':'symbol':'2.2'"-->
+<!--                   (ngModelChange)="categoriaItemIncluir.vlPreco=$event">-->
+<!--          </div>-->
           <div class="mt-2">
-            <button (click)="salvarNovaCategoriaItem()" class="btn btn-success col-md-2 mt-1"><i class="oi oi-plus"></i>
+            <button (click)="salvarItem()" class="btn btn-success col-md-2 mt-1"><i class="oi oi-plus"></i>
               Salvar
             </button>
-            <button (click)="cancelarInclusaoItem()" class="btn btn-danger col-md-2 mt-1"><i class="oi oi-x"></i> Cancelar
+            <button (click)="cancelarItem()" class="btn btn-danger col-md-2 mt-1"><i class="oi oi-x"></i> Cancelar
             </button>
           </div>
         </div>
       </form>
-      <button *ngIf="!incluindoItem" (click)="addCategoriaItem()" class="btn btn-success col-md-2 mt-1"><i
+      <button *ngIf="!incluindoItem && !editandoItem" (click)="addCategoriaItem()" class="btn btn-success col-md-2 mt-1"><i
         class="oi oi-plus"></i> Incluir
       </button>
-      <button *ngIf="!incluindoItem" (click)="voltarCategoriasItens()" class="btn btn-light col-md-2 mt-1"> Voltar
+      <button *ngIf="!incluindoItem && !editandoItem" (click)="voltarCategoriasItens()" class="btn btn-light col-md-2 mt-1"> Voltar
       </button>
 
     </div>

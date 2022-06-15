@@ -15,7 +15,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { CategoriasComponent } from './categorias/categorias.component';
-import { CategoriasItensComponent } from './categorias-itens/categorias-itens.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
+import {InputNumberComponent} from "./global/inputnumber/inputnumber.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CategoriasItensComponent } from './categorias-itens/categorias-itens.co
     LocalizacaoComponent,
     CardapioComponent,
     CategoriasComponent,
-    CategoriasItensComponent
+    PedidosComponent,
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,

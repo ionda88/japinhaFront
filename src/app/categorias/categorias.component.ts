@@ -19,6 +19,7 @@ export class CategoriasComponent implements OnInit {
 
   incluindo = false;
   incluindoItem = false;
+  editandoItem = false;
 
   categoriaIncluir = new Categoria();
   categoriaItemIncluir = new CategoriaItens();
@@ -121,6 +122,14 @@ export class CategoriasComponent implements OnInit {
     this.selecao = true;
   }
 
+  async salvarItem () {
+    if(this.editandoItem) {
+      await this.salvarCategoriaItemEditado();
+    } else {
+      await this.salvarNovaCategoriaItem();
+    }
+  }
+
   async salvarNovaCategoriaItem() {
     let categoriasItensCollection = collection(this.firestore, 'categorias', this.categoriaSelecionada.cdCategoria, 'categoriasItens');
     const q = query(categoriasItensCollection, where("cdItem", "==", this.categoriaItemIncluir.cdItem));
@@ -147,8 +156,40 @@ export class CategoriasComponent implements OnInit {
     this.setarListaCategoriasItens();
   }
 
-  cancelarInclusaoItem() {
-    this.incluindoItem = false;
+  async salvarCategoriaItemEditado() {
+    let categoriasItensCollection = collection(this.firestore, 'categorias', this.categoriaSelecionada.cdCategoria, 'categoriasItens');
+    const q = query(categoriasItensCollection, where("cdItem", "==", this.categoriaItemIncluir.cdItem));
+    const querySnapshop = await getDocs(q);
+
+    if (!querySnapshop.empty) {
+      let newDocRef = doc(categoriasItensCollection, this.categoriaItemIncluir.cdItem);
+      let categoriaItemDoc = {
+        cdItem: this.categoriaItemIncluir.cdItem,
+        deItem: this.categoriaItemIncluir.deItem,
+        deDescricao: this.categoriaItemIncluir.deDescricao,
+        deUrlFotoItem: this.categoriaItemIncluir.deUrlFotoItem,
+        vlPreco: this.categoriaItemIncluir.vlPreco
+      }
+      await setDoc(newDocRef, categoriaItemDoc, {merge: true});
+
+      alert("Cadastrado com sucesso!");
+    } else {
+      alert("Categoria ainda não cadastrado!");
+    }
+
+    this.editandoItem = false;
     this.categoriaItemIncluir = new CategoriaItens();
+    this.setarListaCategoriasItens();
+  }
+
+  cancelarItem() {
+    this.incluindoItem = false;
+    this.editandoItem = false;
+    this.categoriaItemIncluir = new CategoriaItens();
+  }
+
+  editarItem(categoriaItem: CategoriaItens) {
+    this.categoriaItemIncluir = categoriaItem;
+    this.editandoItem = true;
   }
 }
