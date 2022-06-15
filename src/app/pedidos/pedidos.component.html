@@ -1,0 +1,55 @@
+<div class="container py-5 h-100" *ngIf="selecao">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col col-xl-10">
+      <div class="card">
+        <div class="row g-0">
+          <table class="table">
+            <thead class="text-white" style="background-color: #b72322">
+            <th>Código do Pedido</th>
+            <th>Total</th>
+            <th>Data</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pedido of listaPedidos">
+              <td>{{pedido.cdPedido}}</td>
+              <td>{{pedido.vlTotalPedido}}</td>
+              <td>{{pedido.dtPedido}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+<!--      <form *ngIf="incluindo" class="form-inline border mt-3">-->
+<!--        <div class="m-3">-->
+<!--          <span style="font-family: 'Playfair Display', serif;font-weight: bold">Nova Categoria</span>-->
+<!--          <div class="form-group col-md-6">-->
+<!--            <small style="  display: flex;-->
+<!--  place-items: flex-end;-->
+<!--  place-content: space-between;">Código</small>-->
+<!--            <input type="text" name="cdCategoria" class="form-control form-control-sm col-md-6"-->
+<!--                   [(ngModel)]="categoriaIncluir.cdCategoria">-->
+<!--          </div>-->
+
+<!--          <div class="form-group col-md-6">-->
+<!--            <small style="  display: flex;-->
+<!--  place-items: flex-end;-->
+<!--  place-content: space-between;">Descrição</small>-->
+<!--            <input type="text" name="deCategoria" class="form-control form-control-sm col-md-6"-->
+<!--                   [(ngModel)]="categoriaIncluir.deCategoria">-->
+<!--          </div>-->
+<!--          <div class="mt-2">-->
+<!--            <button (click)="salvarNovaCategoria()" class="btn btn-success col-md-2 mt-1"><i class="oi oi-plus"></i>-->
+<!--              Salvar-->
+<!--            </button>-->
+<!--            <button (click)="cancelarInclusao()" class="btn btn-danger col-md-2 mt-1"><i class="oi oi-x"></i> Cancelar-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </form>-->
+      <button (click)="addPedido()" class="btn btn-success col-md-2 mt-1"><i
+        class="oi oi-plus"></i> Incluir
+      </button>
+    </div>
+  </div>
+</div>
