@@ -1,21 +1,72 @@
-<div class="container">
+<div class="container py-5 h-100">
   <div class="row">
-    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-      <div class="btn-group mr-2" role="group" aria-label="First group">
-        <button type="button" (click)="validaSituacao(1)" ><span
-          class="oi oi-chevron-right">&nbsp;Orçamento</span></button>
-        <button type="button" (click)="validaSituacao(2)"><span
-          class="oi oi-chevron-right">&nbsp;Pedido</span></button>
-        <button type="button" (click)="validaSituacao(3)"><span
-          class="oi oi-chevron-right">&nbsp;Aprovado</span></button>
-        <button type="button" (click)="validaSituacao(4)"><span
-          class="oi oi-chevron-right">&nbsp;Produção</span></button>
-        <button type="button" (click)="validaSituacao(5)"><span
-          class="oi oi-chevron-right">&nbsp;Faturado</span></button>
-        <button type="button" (click)="validaSituacao(6)"><span
-          class="oi oi-chevron-right">&nbsp;Trânsito</span></button>
-        <button type="button" (click)="validaSituacao(7)"><span
-          class="oi oi-chevron-right">&nbsp;Entregue</span></button>
+    <div class="col-4">
+      <table class="table">
+        <thead class="text-white row" style="background-color: #b72322">
+        <!--            <th></th>-->
+        <th class="col">Código Item</th>
+        <th class="col">Descrição</th>
+        <th class="col">Valor</th>
+        <th class="col">Quantidade</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let categoriaItem of listaCategoriaItensSelecionados" class="row">
+          <!--              <td><button (click)="editCategoria(categoria)" class="btn btn-sm btn-primary">-->
+          <!--                <i class="oi oi-pencil"></i></button></td>-->
+          <td class="col">{{categoriaItem.cdItem}}</td>
+          <td class="col">{{categoriaItem.deItem}}</td>
+          <td class="col">{{categoriaItem.vlPreco | currency : 'R$'}}</td>
+          <td class="col"><inputnumber label="" [campo]="categoriaItem.quantidade" (onChange)="categoriaItem.quantidade = $event" ></inputnumber></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="col text-right">Total: {{calculaValor() | currency : 'R$'}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success col-md-12 mt-1"><i
+        class="oi oi-check"></i> Prosseguir para o pagamento
+      </button>
+    </div>
+    <div class="col-8 row d-flex justify-content-center align-items-center h-100">
+      <div class="row w-100">
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="First group">
+            <button type="button" (click)="validaSituacao(1)" class="btn btn-sm btn-success"><span
+              class="oi oi-chevron-right">&nbsp;1-Escolher Itens</span></button>
+            <button type="button" (click)="validaSituacao(2)"><span
+              class="oi oi-chevron-right">&nbsp;2-Conferir Itens</span></button>
+            <button type="button" (click)="validaSituacao(3)"><span
+              class="oi oi-chevron-right">&nbsp;3-Realizar Pagamento</span></button>
+            <button type="button" (click)="validaSituacao(4)"><span
+              class="oi oi-chevron-right">&nbsp;4-Balcão/Delivery</span></button>
+            <button type="button" (click)="validaSituacao(6)"><span
+              class="oi oi-chevron-right">&nbsp;Trânsito</span></button>
+            <button type="button" (click)="validaSituacao(7)"><span
+              class="oi oi-chevron-right">&nbsp;Entregue</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="border row text-center" *ngIf="selecao">
+        <div class="col-md-3 col-lg-2 col-sm-4 card-menu mx-3 my-2 bg-white rounded" style="height:150px"
+             title="{{categoria.deCategoria}}" *ngFor="let categoria of listaCategoria" (click)="editCategoria(categoria)">
+          <span class="oi oi-box w-100 mt-4" style="font-size: 40px" aria-hidden="true"></span>
+          <div class="card-body">
+            <p class="card-text" style="font-size: 13px">{{categoria.deCategoria}}<br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="border row text-center" *ngIf="!selecao">
+        <div class="col-md-3 col-lg-2 col-sm-4 card-menu mx-3 my-2 bg-white rounded" style="height:150px"
+             title="{{categoriaItens.deItem}}" *ngFor="let categoriaItens of listaCategoriaItens" (click)="addItem(categoriaItens)">
+          <span class="oi oi-box w-100 mt-4" style="font-size: 40px" aria-hidden="true"></span>
+          <div class="card-body">
+            <p class="card-text" style="font-size: 13px">{{categoriaItens.deItem}} - {{categoriaItens.vlPreco | currency : 'R$'}}<br>
+            </p>
+          </div>
+        </div>
+        <button (click)="selecao = true" class="btn btn-light col-md-2 mt-1"> Voltar
+        </button>
       </div>
     </div>
   </div>

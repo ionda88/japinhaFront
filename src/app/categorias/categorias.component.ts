@@ -60,7 +60,8 @@ export class CategoriasComponent implements OnInit {
           deItem: data.data()['deItem'],
           deDescricao: data.data()['deDescricao'],
           deUrlFotoItem: data.data()['deUrlFotoItem'],
-          vlPreco: data.data()['vlPreco']
+          vlPreco: data.data()['vlPreco'],
+          quantidade: 0
         };
         this.listaCategoriaItens.push(categoriaItem);
       });

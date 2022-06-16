@@ -17,9 +17,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/pedidos">Fazer um pedido</a>
           </li>
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link active" aria-current="page" routerLink="/categorias">categorias</a>-->
-<!--          </li>-->
+          <li class="nav-item" *ngIf="authService.usuario.email != ''">
+            <a class="nav-link active" aria-current="page" routerLink="/categorias">Cadastro de Categorias</a>
+          </li>
 
 <!--          <li class="nav-item">-->
 <!--            <a class="nav-link active" aria-current="page" routerLink="/categoriasItens">categorias itens</a>-->

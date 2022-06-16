@@ -47,9 +47,11 @@
 <!--          </div>-->
 <!--        </div>-->
 <!--      </form>-->
-      <button (click)="addPedido()" class="btn btn-success col-md-2 mt-1"><i
+      <button (click)="selecao = false" class="btn btn-success col-md-2 mt-1"><i
         class="oi oi-plus"></i> Incluir
       </button>
     </div>
   </div>
 </div>
+
+<app-realizar-pedido *ngIf="!selecao"></app-realizar-pedido>

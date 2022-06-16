@@ -4,4 +4,6 @@ export class CategoriaItens {
   deDescricao = "";
   deUrlFotoItem = "";
   vlPreco = 0.0;
+
+  quantidade = 0;
 }
