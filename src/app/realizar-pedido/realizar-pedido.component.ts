@@ -78,4 +78,9 @@ export class RealizarPedidoComponent implements OnInit {
     }
     return valor;
   }
+
+  realizarPagamento() {
+    alert("Pedido Concluido!");
+    alert("Aguardando pagamento!");
+  }
 }
